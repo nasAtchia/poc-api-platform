@@ -43,7 +43,6 @@ services:
       - POSTGRES_USER=${POSTGRES_USER:-app}
     volumes:
       - db_data:/var/lib/postgresql/data
-      - ./api/docker/db/data:/var/lib/postgresql/data
 ###< doctrine/doctrine-bundle ###
 
 ###> doctrine/mongodb-odm-bundle ###
@@ -55,7 +54,6 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD:-!ChangeMe!}
     volumes:
       - db_nosql_data:/data/db:rw
-      - ./api/docker/db/nosql_data:/data/db:rw
     ports:
       - target: 27017
         published: ${MONGO_INITDB_PORT:-27017}
@@ -72,5 +70,8 @@ volumes:
 ###> doctrine/doctrine-bundle ###
   db_data:
 ###< doctrine/doctrine-bundle ###
+###> doctrine/mongodb-odm-bundle ###
+  db_nosql_data:
+###< doctrine/mongodb-odm-bundle ###
 ###> symfony/mercure-bundle ###
 ###< symfony/mercure-bundle ###

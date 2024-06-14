@@ -23,7 +23,6 @@
 **/Thumbs.db
 .github/
 docs/
-docker/db/
 public/bundles/
 tests/
 var/
